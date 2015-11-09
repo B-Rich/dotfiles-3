@@ -1,0 +1,23 @@
+#!/bin/bash
+source $(dirname $0)/config
+
+temp=$((`sensors | grep "Physical id 0" | cut -d'+' -f2 | head -c2`))
+
+if [[ $temp > 44 ]]; then
+ output="CPU Temperature:%{F$COLOR_ICON}  %{F-}$temp°"
+else
+ output=""
+fi
+
+
+if [[ -f $HOME/documents/failed.log ]]; then
+ ATTEMPTS=`cat /home/schism/documents/failed.log`
+ output2=`echo -e "Login Attempts: $ATTEMPTS"`
+ output3=`cat /home/schism/documents/accepted.log`
+ output4=`cat /home/schism/documents/user-auth.log`
+else
+ output2=""
+fi
+
+echo -e "$output     $output2:$output3($output4)  ";
+

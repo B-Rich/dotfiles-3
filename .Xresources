@@ -1,0 +1,60 @@
+!#include "/home/schism/.colors/cryptmatrix"
+!#include "/home/schism/.colors/julian"
+#include "/home/schism/.colors/s3r0"
+
+! #########################################
+urxvt*perl-lib:		/usr/lib/urxvt/perl
+urxvt*perl-ext-common:	default,matcher,clipboard-osc,font-size
+urxvt*perl-matcher: 	1
+urxvt*matcher-button: 	3
+urxvt*url-launcher:	/usr/bin/google-chrome-unstable
+urxvt*cursorUnderline:	1
+urxvt*letterspace:	-5
+
+urxvt*cursorBlink:	true
+urxvt*scrollBar:	false
+urxvt*depth:		32 
+urxvt*internalBorder: 	5
+urxvt*dynamicColors:	on
+urxvt.urgentOnBell:	true
+
+! Font change settings
+URxvt.iso14755:		false
+URxvt.iso14755_52:	false
+!URxvt.keysym.C-7: command:\033]710;-lokaltog-fixed-medium-r-normal--10-100-75-75-c-60-iso8859-1\007\033]711;-lokaltog-fixed-medium-r-normal--10-100-75-75-c-60-iso8859-1\007
+!URxvt.keysym.C-8: command:\033]710;-*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*\007\033]711;-*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*\007
+!URxvt.keysym.C-9: command:\033]710;-*-tamzen-medium-r-normal-*-*-87-*-*-*-*-*-*\007\033]711;-*-tamzen-medium-r-normal-*-*-87-*-*-*-*-*-*\007
+!URxvt.keysym.C-0: command:\033]710;xft:monaco:size=9\007\033]711;xft:monaco:size=9\007
+URxvt.keysym.C-equal:	perl:font-size:increase
+URxvt.keysym.C-minus:   perl:font-size:decrease
+
+!urxvt*font: -*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+urxvt*font:	-*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
+!urxvt*boldFont: -*-terminus-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+!urxvt*italicFont: -*-terminus-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+!urxvt*bolditalicFont:-*-terminus-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+
+!dzen2.font: -*-terminus-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+
+Xft.antialias:	1
+Xft.autohint:	0
+Xft.dpi:	96
+Xft.hinting:	1
+Xft.hintstyle:	hintfull
+Xft.lcdfilter:	lcddefault
+Xft.rgba: 	rgb
+
+!URxvt.intensityStyles: false
+
+xclock*majorColor:	#9a875f
+xclock*minorColor:	#9a875f
+xclock*minuteColor:	#9a875f
+xclock*hourColor:	#9a875f
+xclock*secondColor:	#9a875f
+
+#URxvt.transparent:   true
+#URxvt.tintColor:     black
+#URxvt.shading:       150
+
+!URxvt.depth: 32
+URxvt.background: rgba:2900/2900/2900/dddd
