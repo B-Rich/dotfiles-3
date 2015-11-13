@@ -91,7 +91,7 @@ extract() {
 }
 
 _tmux() {
-	BASE="$HOME/Documents/c/source/game";
+	BASE="$HOME/git/rpg-c";
 	tmux start-server
 	tmux new-session -d -s RPG -n Workspace
 	tmux new-window -t RPG:2 -n Shell

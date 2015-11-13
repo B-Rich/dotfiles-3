@@ -36,4 +36,4 @@ set nowrap
 
 command CC !clear && cd $C/source/game && gcc -o rpg -Wall headers/*.c % && ./rpg
 command ME !make && ./rpg-c
-command BAK !tar czvf "bak/bak-`date +\%d\%m-\%H\%M`.tar.gz" obj/ src/ Makefile ecosphere.ru README
+command BAK !tar czvf "bak/bak-`date +\%d\%m-\%H\%M`.tar.gz" obj/ src/ Makefile ecosphere.in README
