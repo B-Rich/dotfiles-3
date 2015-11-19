@@ -11,7 +11,6 @@ Plugin 'gmarik/vundle'
 " We could also add repositories with a ".git" extension
 Plugin 'scrooloose/nerdtree.git'
 " NERDTree, Use F3 for toggle NERDTree
-nmap <silent> <F3> :NERDTreeToggle<CR>
 
 
 " To get plugins from Vim Scripts, you can reference the plugin
@@ -30,10 +29,14 @@ Plugin 'vim-scripts/Conque-Shell'
 filetype plugin indent on
 set nu
 syntax on
-set cindent
+autocmd FileType c set cindent
 set background=dark
 set nowrap
 
 command CC !clear && cd $C/source/game && gcc -o rpg -Wall headers/*.c % && ./rpg
 command ME !make && ./rpg-c
 command BAK !tar czvf "bak/bak-`date +\%d\%m-\%H\%M`.tar.gz" obj/ src/ Makefile ecosphere.in README
+
+nmap     <silent> <F3> :NERDTreeToggle<CR>
+nnoremap <buffer> <F4> :exec '!python' shellescape(@%, 1)<CR>
+
