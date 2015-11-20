@@ -39,6 +39,8 @@ fi
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+[ ! -s ~/.config/mpd/pid ] && mpd
+
 color_prompt=yes
 if [ "$color_prompt" = yes ]; then
      export PS1="\W » "
