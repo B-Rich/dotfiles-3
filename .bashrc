@@ -25,8 +25,8 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias wine='WINEPREFIX=/home/schism/.wine32 WINEARCH=win32 wine'
-alias _tmux_attach='tmux attach -t RPG'
-alias _tmux_kill='tmux kill-session -t RPG'
+alias _tmux_attach='tmux attach -t'
+alias _tmux_kill='tmux kill-session -t'
 alias snapshot='sudo snapscreenshot -c1 -x1 > /tmp/snap.tga'
 
 # enable programmable completion features (you don't need to enable
@@ -93,12 +93,12 @@ extract() {
 }
 
 _tmux() {
-	BASE="$HOME/git/rpg-c";
+	BASE="$HOME/git/${1}";
 	tmux start-server
-	tmux new-session -d -s RPG -n Workspace
-	tmux new-window -t RPG:2 -n Shell
+	tmux new-session -d -s ${1} -n Workspace
+	tmux new-window -t ${1}:2 -n Shell
 
-	tmux select-window -t RPG:1
+	tmux select-window -t ${1}:1
 
 	tmux split-window -h
 	tmux select-pane -t 1
@@ -112,12 +112,12 @@ _tmux() {
 	tmux resize-pane -R 20
 
 	tmux send-keys -t 0 "cd ${BASE}; vim src/main.c" C-m
-	tmux send-keys -t 1 "htop" C-m
+	tmux send-keys -t 1 "tty-clock -c" C-m
 	tmux send-keys -t 3 "weechat" C-m
 
-	tmux select-window -t RPG:1
+	tmux select-window -t ${1}:1
 	tmux select-pane -t 0
-	tmux attach-session -t RPG
+	tmux attach-session -t ${1}
 }
 
 pull-stream() {
