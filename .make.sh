@@ -15,18 +15,22 @@ directories=".colors \
 .config/sxhkd \
 .config/scripts"
 
-files="bashrc \
-bash_profile \
-compton.conf \
-external_functions \
-vimrc \
-Xdefaults \
-Xresources \
-xinitrc \
-zshrc"
+files=".bashrc \
+.bash_profile \
+.compton.conf \
+.external_functions \
+.vimrc \
+.Xdefaults \
+.Xresources \
+.xinitrc \
+.zshrc"
 
 for dir in ${directories}; do
 	rm -rf ${HOME}/${dir}
+done
+
+for file in ${files}; do
+	rm ${HOME}/${file}
 done
 
 ##########
@@ -49,5 +53,5 @@ for dir in ${directories}; do
 done
 
 for file in ${files}; do
-	ln -s ${PWD}/${file} ${HOME}/.${file}
+	ln -s ${PWD}/${file} ${HOME}/${file}
 done
