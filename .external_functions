@@ -1,9 +1,9 @@
 export EDITOR=vim
 #export PATH=$PATH:${HOME}.config/bspwm/panel:${HOME}/scripts:${HOME}/.gem/ruby/2.2.0/bin:${HOME}/.local/bin
-export SCRIPTS=$HOME/scripts
-export RUBY=$HOME/Documents/ruby
-export C=$HOME/Documents/c
-export WMSCRIPT=$HOME/.config/scripts
+export SCRIPTS=${HOME}/scripts
+export RUBY=${HOME}/Documents/ruby
+export C=${HOME}/Documents/c
+export WMSCRIPT=${HOME}/.config/scripts
 
 # Aliases
 alias vi='vim'
@@ -23,16 +23,16 @@ alias snapshot='sudo snapscreenshot -c1 -x1 > /tmp/snap.tga'
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-[ ! -s ~/.config/mpd/pid ] && mpd
+[ ! -s ~/.config/mpd/pid ] && mpd 
 
 pb() {
   # syntax:  pb <filename>	
   curl -F "c=@${1:--}" https://ptpb.pw/ | tee /tmp/uuid 
-  cat /tmp/uuid | grep uuid | awk '{print $2}' >> ${HOME}/uuid
+  cat /tmp/uuid | grep uuid | awk '{print ${2}}' >> ${HOME}/uuid
 }
 
 pb_rm() {
-  # syntax:  pb <hash_from_$HOME/uuid>
+  # syntax:  pb <hash_from_${HOME}/uuid>
   curl -X DELETE https://ptpb.pw/${1}
   line_num=`cat ${HOME}/uuid | grep -n -i "${1}" | cut -d':' -f1`
   sed -i "${line_num}d" ${HOME}/uuid
@@ -51,28 +51,29 @@ wifi_on() {
 
 
 extract() {
-     if [ -f $1 ] ; then
-         case $1 in
-             *.tar.bz2)   tar xjf $1        ;;
-             *.tar.gz)    tar xzf $1     ;;
-             *.bz2)       bunzip2 $1       ;;
-             *.rar)       rar x $1     ;;
-             *.gz)        gunzip $1     ;;
-             *.tar)       tar xf $1        ;;
-             *.tbz2)      tar xjf $1      ;;
-             *.tgz)       tar xzf $1       ;;
-             *.zip)       unzip $1     ;;
-             *.Z)         uncompress $1  ;;
-             *.7z)        7z x $1    ;;
-             *)           echo "'$1' cannot be extracted via extract()" ;;
+     if [ -f ${1} ] ; then
+         case ${1} in
+             *.tar.bz2)   tar xjf ${1}	;;
+             *.tar.gz)    tar xzf ${1}	;;
+             *.bz2)       bunzip2 ${1}	;;
+             *.rar)       rar x ${1}	;;
+             *.gz)        gunzip ${1}	;;
+             *.tar)       tar xf ${1}	;;
+             *.tbz2)      tar xjf ${1}	;;
+             *.tgz)       tar xzf ${1}	;;
+             *.zip)       unzip ${1}	;;
+             *.Z)         uncompress ${1}	;;
+             *.7z)        7z x ${1}	;;
+             *)           echo "'${1}' cannot be extracted via extract()" ;;
          esac
      else
-         echo "'$1' is not a valid file"
+         echo "'${1}' is not a valid file"
      fi
 }
 
 _tmux() {
-	BASE="$HOME/git/${1}";
+	if [[ ${1} == python ]]; then EXT=.py; else EXT=.c; fi
+	BASE="${HOME}/git/${1}";
 	tmux start-server
 	tmux new-session -d -s ${1} -n Workspace
 	tmux new-window -t ${1}:2 -n Shell
@@ -90,7 +91,7 @@ _tmux() {
 	tmux resize-pane -D 7
 	tmux resize-pane -R 20
 
-	tmux send-keys -t 0 "cd ${BASE}; vim src/main.c" C-m
+	tmux send-keys -t 0 "cd ${BASE}; vim src/main${EXT}" C-m
 	tmux send-keys -t 1 "tty-clock -c" C-m
 	tmux send-keys -t 3 "weechat" C-m
 
@@ -100,11 +101,11 @@ _tmux() {
 }
 
 pull-stream() {
-    livestreamer -p "vlc --file-caching=5000" $1 $2
+    livestreamer -p "vlc --file-caching=5000" ${1} ${2}
 }
 
 put-stream() {
-     source $HOME/.stream.key
+     source ${HOME}/.stream.key
      INRES="3840x2160" # input resolution
    # OUTRES="2560x1440" # output resolution
      OUTRES="1920x1080"
@@ -119,7 +120,7 @@ put-stream() {
      AUDIO_RATE="44100" # default: 44100
      ACODEC="libmp3lame"  # audio codec  (libfdk_aac, libmp3lame)
      ABIT_RATE="128k"
-    #STREAM_KEY="[CHECK $HOME/stream.key" # insert stream key here or another file
+    #STREAM_KEY="[CHECK ${HOME}/stream.key" # insert stream key here or another file
      SERVER="live-dfw" # see http://bashtech.net/twitch/ingest.php for list
      
      ffmpeg -f x11grab -thread_queue_size 512 -video_size "$INRES" -r "$FPS" -i $DISPLAY \
@@ -131,7 +132,7 @@ put-stream() {
 }
 
 put-uo() {
-     source $HOME/.stream.key
+     source ${HOME}/.stream.key
      INRES="2560x1440" # input resolution
    # OUTRES="2560x1440" # output resolution
      OUTRES="1920x1080"
@@ -146,7 +147,7 @@ put-uo() {
      AUDIO_RATE="44100" # default: 44100
      ACODEC="libmp3lame"  # audio codec  (libfdk_aac, libmp3lame)
      ABIT_RATE="128k"
-     #STREAM_KEY="[CHECK $HOME/stream.key" # insert stream key here or another file
+     #STREAM_KEY="[CHECK ${HOME}/stream.key" # insert stream key here or another file
      SERVER="live-dfw" # see http://bashtech.net/twitch/ingest.php for list
      #SERVER="live-lax"
 
