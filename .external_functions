@@ -28,7 +28,7 @@ alias snapshot='sudo snapscreenshot -c1 -x1 > /tmp/snap.tga'
 pb() {
   # syntax:  pb <filename>	
   curl -F "c=@${1:--}" https://ptpb.pw/ | tee /tmp/uuid 
-  cat /tmp/uuid | grep uuid | awk '{print ${2}}' >> ${HOME}/uuid
+  cat /tmp/uuid | grep uuid | awk '{print $2}' >> ${HOME}/uuid
 }
 
 pb_rm() {
