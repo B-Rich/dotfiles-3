@@ -4,6 +4,7 @@ export SCRIPTS=${HOME}/scripts
 export RUBY=${HOME}/Documents/ruby
 export C=${HOME}/Documents/c
 export WMSCRIPT=${HOME}/.config/scripts
+export GIT=${HOME}/git
 
 # Aliases
 alias vi='vim'

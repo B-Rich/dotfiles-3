@@ -99,3 +99,4 @@ bindkey -v
 
 # PERSONAL FUNCTIONS:
 [[ -f .external_functions ]] && source .external_functions
+alias wine='WINEPREFIX=/home/schism/.wine32 WINEARCH=win32 wine'

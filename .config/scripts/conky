@@ -58,7 +58,7 @@ RAM Used: ${color2}$memperc%${color}  |  \
 Battery: ${if_match "${battery_percent}">="030"}${color2}${battery_percent}%${color}${else}${color3}${battery_percent}%${color}${endif} |  \
 Date: ${color2}${time %r}${color}  
     Volume: ${color2}${execi 1  pactl list sinks | grep "Volume: front" | head -n 2 | tail -n 1 | awk '{print $5}'}${color}  \
-$alignr \
+${if_empty ${mpd_smart}} ${else}[ ${color2}${mpd_smart}${color} ]${endif} $alignr \
 Spotify: ${if_match "${execi 10 $WMSCRIPT/pid.sh spotify}" == "Offline"}${color3}Offline${color}${endif}${if_match "${execi 30 $WMSCRIPT/pid.sh spotify}" != "Offline"}${color2}${execi 30 $WMSCRIPT/pid.sh spotify}${color}${endif}   \
 Skype: ${if_match "${execi 10 $WMSCRIPT/pid.sh skype}" == "Offline"}${color3}Offline${color}${endif}${if_match "${execi 10 $WMSCRIPT/pid.sh skype}" != "Offline"}${color2}${execi 10 $WMSCRIPT/pid.sh skype}${color}${endif}   \
 Steam: ${if_match "${execi 10 $WMSCRIPT/pid.sh steam}" == "Offline"}${color3}Offline${color}${endif}${if_match "${execi 10 $WMSCRIPT/pid.sh steam}" != "Offline"}${color2}${execi 10 $WMSCRIPT/pid.sh steam}${color}${endif}   \
