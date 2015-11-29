@@ -35,13 +35,16 @@ bspc config focused_frame_opacity	0.1
 # Rules
 bspc rule -a mumble 			floating=on desktop=^3
 bspc rule -a skype 			floating=on manage=on desktop=^3
+bspc rule -a explorer.exe 		floating=on manage=on desktop=^4
+bspc rule -a UOS.exe 			floating=on manage=on desktop=^4
+bspc rule -a \-uo 			floating=on manage=on desktop=^4
 bspc rule -a spotify 			desktop=^4
 bspc rule -a thunar 			floating=on
 bspc rule -a transmission-gtk 		pseudo_tiled=on
 bspc rule -a steam 			floating=on desktop=^4
 bspc rule -a google-chrome-unstable 	desktop=^2
 bspc rule -a chrome 			desktop=^2
-#bspc rule -a gimp 			floating=on
+bspc rule -a gimp 			floating=on manage=on
 bspc rule -a pavucontrol		floating=on
 bspc rule -a vlc                        floating=on
 bspc rule -a eog			floating=on

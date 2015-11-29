@@ -131,7 +131,7 @@ alt + s
 	scrot
 
 ctrl + alt + s
-	scrot -u -b
+	scrot -u -q 100 
 
 alt + shift + s
 	scrot -s
