@@ -13,12 +13,14 @@ directories=".colors \
 .config/mpd/playlists \
 .config/mpd \
 .config/sxhkd \
-.config/scripts"
+.config/scripts \
+.config/tint2"
 
 files=".bashrc \
 .bash_profile \
 .compton.conf \
 .external_functions \
+.ncmpcpp \
 .vimrc \
 .Xdefaults \
 .Xresources \

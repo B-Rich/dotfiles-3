@@ -21,6 +21,8 @@ alias _tmux_attach='tmux attach -t'
 alias _tmux_kill='tmux kill-session -t'
 alias _tmux_list='tmux list-session'
 alias snapshot='sudo snapscreenshot -c1 -x1 > /tmp/snap.tga'
+alias KERNMSG='journalctl -f _TRANSPORT=kernel'
+alias cower='cower --color=always --target ${HOME}/build'
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -74,7 +76,7 @@ extract() {
 
 _tmux() {
 	if [[ ${1} == python ]]; then EXT=.py; else EXT=.c; fi
-	BASE="${HOME}/git/${1}";
+	BASE="${HOME}/git/${1}*";
 	tmux start-server
 	tmux new-session -d -s ${1} -n Workspace
 	tmux new-window -t ${1}:2 -n Shell
@@ -92,13 +94,18 @@ _tmux() {
 	tmux resize-pane -D 7
 	tmux resize-pane -R 20
 
-	tmux send-keys -t 0 "cd ${BASE}; vim src/main${EXT}" C-m
+	tmux send-keys -t 0 "cd ${BASE}; vim src/main${EXT}*" C-m
 	tmux send-keys -t 1 "tty-clock -c" C-m
 	tmux send-keys -t 3 "weechat" C-m
 
 	tmux select-window -t ${1}:1
 	tmux select-pane -t 0
 	tmux attach-session -t ${1}
+}
+
+geoip_start() {
+	sudo systemctl restart docker
+	sudo docker run --net=host --restart=always -d fiorix/freegeoip -http ":80"
 }
 
 pull-stream() {
