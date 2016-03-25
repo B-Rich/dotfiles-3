@@ -23,6 +23,7 @@ alias _tmux_list='tmux list-session'
 alias snapshot='sudo snapscreenshot -c1 -x1 > /tmp/snap.tga'
 alias KERNMSG='journalctl -f _TRANSPORT=kernel'
 alias cower='cower --color=always --target ${HOME}/build'
+alias rmo='echo "Deletion: " && for FILE in `ls *.o`; do echo -n "${FILE}   "; done && echo"" && rm -I *.o'
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -105,7 +106,7 @@ _tmux() {
 
 geoip_start() {
 	sudo systemctl restart docker
-	sudo docker run --net=host --restart=always -d fiorix/freegeoip -http ":80"
+	sudo docker run --net=host --restart=always -d fiorix/freegeoip -http ":80" -public=/srv/http
 }
 
 pull-stream() {

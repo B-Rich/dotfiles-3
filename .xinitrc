@@ -1,5 +1,5 @@
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-hsetroot -full ~/.config/scripts/background3.jpg
+hsetroot -full ~/bgb.ping
 xsetroot -cursor_name left_ptr &
 
 ##  BSPWM  ##
