@@ -21,6 +21,9 @@ super + t
 super + b
     bspc desktop -B
 
+super + a
+    bspc node -t tiled
+
 super + {s,f}
     bspc node -t {floating,fullscreen}
 
@@ -29,7 +32,7 @@ super + {s,f}
 
 # Presel window for splitting
 alt + ctrl + {h,j,k,l}
-	bspc node -p {left,down,up,right}
+	bspc node -p {west,south,north,east}
 
 alt + Tab
 	bspc node -f next
@@ -49,7 +52,7 @@ super + m
     bspc node -s biggest
 
 super + {_,shift + }{h,j,k,l}
-    bspc node -{f,s} {left,down,up,right}
+    bspc node -{f,s} {west,south,north,east}
 
 super + {_,shift + }c
     bspc node -f {next,prev}
@@ -61,16 +64,16 @@ super + bracket{left,right}
     bspc desktop -f {prev,next}
 
 super + ctrl + {h,j,k,l}
-    bspc node -p {left,down,up,right}
+    bspc node -p {west,south,north,east}
 
 super + ctrl + {_,shift + }space
     bspc {node -p cancel,desktop -c}
 
 super + alt + {h,j,k,l}
-    bspc node -e {left,down,up,right} push
+    bspc node -e {west,south,north,east} push
 
 super + alt + shift + {h,j,k,l}
-    bspc node -e {right,up,down,left} pull
+    bspc node -e {west,south,north,east} pull
 
 super + ctrl + {1-9}
     bspc node -r 0.{1-9}
@@ -135,9 +138,6 @@ ctrl + alt + s
 
 alt + shift + s
 	scrot -s
-	
-super + a
-	exec ~/.wm_scripts/menu
 	
 super + F12
 	amixer -q set Master 5%+ unmute

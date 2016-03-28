@@ -47,7 +47,6 @@ color4 FFFFFF
 TEXT
 ${font}${voffset 3}  \
 ${if_match ${desktop}==1}${color2}[1]${else}${color}1${endif} ${if_match ${desktop}==2}${color2}[2]${color}${else}${color}2${endif} ${if_match ${desktop}==3}${color2}[3]${color}${endif}${if_match ${desktop}==4}${color2}[4]${color}${endif}${if_match ${desktop}==5}${color2}[5]${color}${endif} \
-| Updates: ${color2}${execi 30 yaourt -Qu | wc -l}${color} \
 $alignc \
    \
 IP: ${color2}${addr wlp4s0}${color}::${color2}${execi 30 curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'}${color}    \
