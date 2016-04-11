@@ -1,10 +1,10 @@
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-hsetroot -full ~/bgb.ping
+hsetroot -full ~/bgb.png
 xsetroot -cursor_name left_ptr &
 
 ##  BSPWM  ##
 urxvt &
-exec bspwm
+exec bspwm -c /home/schism/.config/bspwm/bspwm
 
 ##  OTHERS  ##
 #startkde

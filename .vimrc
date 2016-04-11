@@ -18,8 +18,8 @@ Plugin 'scrooloose/nerdtree.git'
 Plugin 'Buffergator'
 
 " YouCompleteMe
-Plugin 'valloric/YouCompleteMe'
-let g:ycm_confirm_extra_conf = 0
+"Plugin 'valloric/YouCompleteMe'
+"let g:ycm_confirm_extra_conf = 0
 
 "Conque
 Plugin 'vim-scripts/Conque-Shell'
